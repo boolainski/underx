@@ -3,7 +3,7 @@
 #
 # Usage: !uptime
 
-set uptime_trigger "!uptime"
+set uptime_trigger "!vpstime"
 
 bind pub - $uptime_trigger pub_vps_uptime
 
