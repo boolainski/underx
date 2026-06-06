@@ -1,7 +1,7 @@
 ###############################################################################
 # christmas-countdown.tcl by asl_pls @ irc.underx.org #aslpls
 # Christmas 2026 Countdown Auto-Topic Script for Eggdrop
-# Updates the channel topic every 2 hours with the remaining time and a random topic.
+# Updates the channel topic every 2 hours with the remaining time.
 ###############################################################################
 
 namespace eval ::XmasCountdown {
@@ -11,12 +11,13 @@ namespace eval ::XmasCountdown {
     variable channels "#aslpls"
     
     # The base topic prefix. The countdown will be appended to this.
-    variable topic_prefix "Welcome! | "
+    variable topic_prefix "0,4 H 2,7 e 2,8 y 2,9 ! 2,15 *  "
     
     # ------------ END OF CONFIGURATION ------------
 
-    # Bind a time timer to run every 2 hours (at 00 mins past the hour)
+    # Bind a time timer to run every 2 hours (at 00, 02, 04, etc. mins past the hour)
     # Eggdrop 'time' binds use the format "minute hour day month weekday"
+    # A minute value of "00" triggers once an hour. We'll filter for every 2 hours inside.
     bind time - "00 * * * *" [namespace current]::check_time
 
     proc check_time {min hour day month weekday} {
@@ -37,7 +38,7 @@ namespace eval ::XmasCountdown {
         set diff [expr {$xmas_time - $now}]
 
         if {$diff <= 0} {
-            set countdown_str "🎄 Merry Christmas 2026! 🎄"
+            set countdown_str "? Merry Christmas 2026! ?"
         } else {
             # Calculate days, hours, and minutes
             set days [expr {$diff / 86400}]
@@ -45,24 +46,11 @@ namespace eval ::XmasCountdown {
             set hours [expr {$rem / 3600}]
             set mins [expr {($rem % 3600) / 60}]
 
-            set countdown_str "🎄 Only $days days, $hours hours, and $mins minutes until Christmas 2026! 🎄"
+            set countdown_str "1Only4 $days days1,7 $hours hours1, and6 $mins minutes101 until Christmas Day 2026! "
         }
 
-        # ---------------------------------------------------------------------
-        # 3 RANDOM TOPICS POOL
-        # ---------------------------------------------------------------------
-        # You can easily edit the text inside these quotes to whatever you like!
-        set random_topics [list \
-            "[Global News] Scientists finally prove that looking at internet cats increases productivity by 42%." \
-            "[Topic of the Day] If tomatoes are a fruit, then technically ketchup is a smoothie. Discuss." \
-            "[Did You Know?] The first IRC network was created in 1988, making it older than World Wide Web websites!" \
-        ]
-
-        # Pick one of the 3 topics at random
-        set random_pick [lindex $random_topics [expr {int(rand() * [llength $random_topics])}]]
-
-        # Combine your static prefix, the countdown, and the selected random topic
-        set new_topic "${topic_prefix}${countdown_str} | Current Buzz: ${random_pick}"
+        # Combine your static prefix with the countdown string
+        set new_topic "${topic_prefix}${countdown_str}"
 
         # Loop through configured channels and update if the bot is on them
         foreach chan [split $channels] {
@@ -73,4 +61,4 @@ namespace eval ::XmasCountdown {
     }
 }
 
-putlog "Loaded: Christmas 2026 Countdown Topic Script with 3 Random Topics (Every 2 Hours)"
+putlog "Loaded: Christmas 2026 Countdown Topic Script (Every 2 Hours)"
