@@ -235,3 +235,5 @@ namespace eval ::ulvl {
 
     init
 }
+
+ putlog "channel_level_up_game.tcl loaded successfully. By asl_pls @ irc.underx.org #aslpls"
