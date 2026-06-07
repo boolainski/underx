@@ -7,6 +7,7 @@ TCL Scripts
 2. x-vps-uptime.tcl
 3. underx-access.tcl
 4. x-worldtime.tcl
+5. x-active-users.tcl
 
 
 # Suggestion/s
