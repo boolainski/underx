@@ -1,5 +1,5 @@
 ###############################################################################
-# Eggdrop World Time Tracker Script by Gemini
+# Eggdrop World Time Tracker Script by asl_pls @ irc.underx.org #aslpls
 # Allows users to check local times around the world in 12-hour AM/PM format.
 #
 # Commands (Public):
@@ -140,5 +140,5 @@ namespace eval ::WorldTime {
 
     # Initialize
     load_zones
-    putlog "Loaded: World Time Tracker Script (12h format) by asl_pls"
+    putlog "Loaded: World Time Tracker Script (12h format) by asl_pls @ irc.underx.org #aslpls"
 }
