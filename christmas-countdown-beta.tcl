@@ -61,4 +61,4 @@ namespace eval ::XmasCountdown {
     }
 }
 
-putlog "Loaded: Christmas 2026 Countdown Topic Script (Every 2 Hours)"
+putlog "Loaded: Christmas 2026 Countdown Topic Script (Every 2 Hours) by asl_pls @ irc.underx.org #aslpls"
