@@ -55,4 +55,4 @@ proc pub_vps_uptime {nick uhost hand chan arg} {
     putquick "PRIVMSG $chan :\002VPS Status:\002 $uptime_days $day_label | \002Boot Date:\002 $boot_date"
 }
 
-putlog "Loaded: VPS Clean Uptime Script (Trigger: $uptime_trigger)"
+putlog "Loaded: VPS Clean Uptime Script (Trigger: $uptime_trigger) by asl_pls @ irc.underx.org #aslpls"
