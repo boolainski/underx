@@ -272,4 +272,4 @@ namespace eval ::GuessGamePro {
     }
 }
 
-putlog "Multi-round Guessing Game with Top 5 Loaded Successfully!"
+putlog "Multi-round Guessing Game with Top 5 by asl_pls @ irc.underx.org #aslpls Loaded Successfully!"
